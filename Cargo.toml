@@ -1,0 +1,40 @@
+[package]
+name = "ssh"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name="client"
+path="src/client.rs"
+
+[[bin]]
+name="server"
+path="src/server.rs"
+
+[dependencies]
+anyhow = "1.0.98"
+clap = { version = "4.5.37", features = ["derive"] }
+dialoguer = "0.11.0"
+env_logger = "0.11.8"
+log = "0.4.27"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0"
+aes-gcm = "0.10"
+rand = "0.8"
+argon2 = "0.5"
+rpassword = "7.3" # For securely reading password on server for setup (optional)
+# rsa = { version = "0.9", features = ["sha2"] } # For certificate auth later, placeholder
+pem = "3.0" # For loading PEM-encoded keys
+ed25519-dalek = { version = "2.1", features = ["serde", "pkcs8"] } # For Ed25519 signatures, added pkcs8 feature
+base64 = "0.21" # For OpenSSH public key format decoding
+sha2 = "0.10" # For hashing
+rustyline = "14.0"
+hex = "0.4" # For debugging/representing keys
+tokio = { version = "1.44.2", features = ["full"] }
+generic-array = "0.14"
+typenum = "1.17" # Often needed with generic-array/crypto crates
+pkcs8 = "0.10" # For parsing PKCS#8/SPKI DER structures (removed incorrect feature flag)
+byteorder = "1.4" # For reading integers from byte streams (OpenSSH key parsing)
+
+[dev-dependencies]
+nix = { version = "0.27", features = ["signal", "process"] }

@@ -1,0 +1,27 @@
+#V2
+ls
+history
+export VAR=value
+echo $VAR
+echo VAR
+echo $VAR
+echo $(VAR)
+var=value
+env
+env | grep VAR
+val=vali
+export val=vali
+echo $val
+nano
+exit
+echo "hello"
+ls
+echo "hello"
+ls
+cd tests
+ls
+cd ..
+ls
+pwd
+history
+ls
